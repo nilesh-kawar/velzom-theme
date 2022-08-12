@@ -178,7 +178,7 @@ const Chat = () => {
               </div>
 
               <PerfectScrollbar
-                className="chat-room-list"
+                className="testPage-list"
               >
                 <div className="d-flex align-items-center px-4 mb-2">
                   <div className="flex-grow-1">
