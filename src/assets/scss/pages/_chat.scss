@@ -8,6 +8,12 @@
 }
 
 // chat left sidebar
+.height-width{
+    @media (min-width: 992px) {
+        min-width: 235px!important;
+        height: calc(100vh - #{$header-height} - #{$footer-height} - 8px)!important;
+    }
+}
 
 .chat-leftsidebar {
     height: calc(100vh - 137px);
