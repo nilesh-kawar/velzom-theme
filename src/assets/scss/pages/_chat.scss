@@ -16,7 +16,7 @@
 }
 .height-width-right{
     @media (min-width: 992px) {
-        min-width: 250px!important;
+        min-width: 260px!important;
         height: calc(100vh - #{$header-height} - #{$footer-height} - 8px)!important;
     }
 }

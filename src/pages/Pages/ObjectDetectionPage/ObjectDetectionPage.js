@@ -13,7 +13,10 @@ import {
   Card,
   CardBody,
   CardHeader,
-  UncontrolledDropdown
+  UncontrolledDropdown,
+  Form,
+  Label, 
+    Modal,
 } from "reactstrap";
 import BreadCrumb from '../../../Components/Common/BreadCrumb';
 //Import Scrollbar
@@ -29,6 +32,12 @@ import {
 
 const ObjectDetection = () => {
     document.title="Object Detection Page| Velzon - React Admin & Dashboard Template";
+
+    const [modal_board, setmodal_board] = useState(false);
+    function tog_board() {
+        setmodal_board(!modal_board);
+    }
+
   return (
     <React.Fragment>
       <div className="page-content">
@@ -171,7 +180,16 @@ const ObjectDetection = () => {
                       <h6 className="mb-0 text-muted font-weight-normal">Longer than</h6>
                     </div>
                     <div className="flex-shrink-0">
-                      <h6> <span className="font-weight-bold font-italic">5</span> secs</h6>
+                        <UncontrolledDropdown>
+                            <DropdownToggle tag="button" className="btn btn-light bg-transparent border-0 pr-0">
+                                5 Sec <i className="mdi mdi-chevron-down"></i>
+                            </DropdownToggle>
+                            <DropdownMenu>
+                                <DropdownItem>10 Sec</DropdownItem>
+                                <DropdownItem>20 Sec</DropdownItem>
+                                <DropdownItem>30 Sec</DropdownItem>
+                            </DropdownMenu>
+                        </UncontrolledDropdown>
                     </div>
                   </div>
                 </div>
@@ -310,7 +328,7 @@ const ObjectDetection = () => {
                   <div className="position-relative">
                     <Row>
                       <Col xl={12}>
-                        <Card className="height-width">
+                        <Card className="height-width mb-0">
                             <CardHeader>
                               <h4 className="card-title mb-0">Example</h4>
                             </CardHeader>
@@ -318,7 +336,15 @@ const ObjectDetection = () => {
                                 <div className="live-preview">
                                     {/* <!-- 16:9 aspect ratio --> */}
                                     <div className="ratio ratio-16x9">
-                                        <iframe className="rounded" src="https://www.youtube.com/embed/1y_kfWUCFDQ" title="YouTube video" allowFullScreen></iframe>
+                                        {/* <iframe className="rounded" src="https://www.youtube.com/embed/1y_kfWUCFDQ" title="YouTube video" allowFullScreen></iframe> */}
+                                        <img src="https://media.wired.com/photos/5a31bcff41e00716c855d00e/16:9/w_2400,h_1350,c_limit/traffic-FA.jpg" className="img-thumbnail" alt="" />
+                                    </div>
+                                    <div className="py-2 mt-3   d-flex justify-content-center  align-items-center ">
+                                      <Link to="#"><i className="bx  bx bx-volume-full bx-sm px-2"></i></Link>
+                                      <Link to="#"><i className="bx bx-skip-previous-circle bx-sm px-2"></i></Link>
+                                      <Link to="#"><i className="bx bx-play-circle bx-md px-2"></i></Link>
+                                      <Link to="#"><i className="bx bx-skip-next-circle bx-sm px-2"></i></Link>
+                                      <Link to="#"><i className="bx bx bx-menu bx-sm px-2"></i></Link>
                                     </div>
                                 </div>
                             </CardBody>
@@ -361,50 +387,61 @@ const ObjectDetection = () => {
                 <div className="px-1 container-fluid overflow-hidden ">
                   <Row className="py-2">
                     <Col xl={4} sm={4} md={4}>
-                      <img src={avatar4} alt="" className=" avatar-md img-fluid border border-1 border-primary rounded" />
+                      <img src={avatar4} alt=""  onClick={() => { tog_board(); }} className=" avatar-md border border-1 border-primary rounded" />
                     </Col>
                     <Col xl={4} sm={4} md={4}>
-                      <img src={avatar4} alt="" className=" avatar-md img-fluid border-sucess border border-1 border-secondary rounded" />
+                      <img src={avatar4} alt="" onClick={() => { tog_board(); }} className=" avatar-md border-sucess border border-1 border-secondary rounded" />
                     </Col>
                     <Col xl={4} sm={4} md={4}>
-                      <img src={avatar4} alt="" className=" avatar-md img-fluid border border-1 border-success rounded" />
-                    </Col>
-                  </Row>
-                  <Row className="py-2">
-                    <Col xl={4} sm={4} md={4}>
-                      <img src={avatar4} alt="" className=" avatar-md img-fluid border border-1 border-warning rounded" />
-                    </Col>
-                    <Col xl={4} sm={4} md={4}>
-                      <img src={avatar4} alt="" className=" avatar-md img-fluid border-sucess border border-1 border-danger rounded" />
-                    </Col>
-                    <Col xl={4} sm={4} md={4}>
-                      <img src={avatar4} alt="" className=" avatar-md img-fluid border border-1 border-dark rounded" />
+                      <img src={avatar4} alt="" onClick={() => { tog_board(); }} className=" avatar-md border border-1 border-success rounded" />
                     </Col>
                   </Row>
                   <Row className="py-2">
                     <Col xl={4} sm={4} md={4}>
-                      <img src={avatar4} alt="" className=" avatar-md img-fluid border border-1 border-primary rounded" />
+                      <img src={avatar4} alt="" onClick={() => { tog_board(); }} className=" avatar-md border border-1 border-warning rounded" />
                     </Col>
                     <Col xl={4} sm={4} md={4}>
-                      <img src={avatar4} alt="" className=" avatar-md img-fluid border-sucess border border-1 border-secondary rounded" />
+                      <img src={avatar4} alt="" onClick={() => { tog_board(); }} className=" avatar-md border-sucess border border-1 border-danger rounded" />
                     </Col>
                     <Col xl={4} sm={4} md={4}>
-                      <img src={avatar4} alt="" className=" avatar-md img-fluid border border-1 border-success rounded" />
+                      <img src={avatar4} alt="" onClick={() => { tog_board(); }} className=" avatar-md border border-1 border-dark rounded" />
                     </Col>
                   </Row>
                   <Row className="py-2">
                     <Col xl={4} sm={4} md={4}>
-                      <img src={avatar4} alt="" className=" avatar-md img-fluid border border-1 border-warning rounded" />
+                      <img src={avatar4} alt="" onClick={() => { tog_board(); }} className=" avatar-md border border-1 border-primary rounded" />
                     </Col>
                     <Col xl={4} sm={4} md={4}>
-                      <img src={avatar4} alt="" className=" avatar-md img-fluid border-sucess border border-1 border-danger rounded" />
+                      <img src={avatar4} alt="" onClick={() => { tog_board(); }} className=" avatar-md border-sucess border border-1 border-secondary rounded" />
                     </Col>
                     <Col xl={4} sm={4} md={4}>
-                      <img src={avatar4} alt="" className=" avatar-md img-fluid border border-1 border-dark rounded" />
+                      <img src={avatar4} alt="" onClick={() => { tog_board(); }} className=" avatar-md border border-1 border-success rounded" />
+                    </Col>
+                  </Row>
+                  <Row className="py-2">
+                    <Col xl={4} sm={4} md={4}>
+                      <img src={avatar4} alt="" onClick={() => { tog_board(); }} className=" avatar-md border border-1 border-warning rounded" />
+                    </Col>
+                    <Col xl={4} sm={4} md={4}>
+                      <img src={avatar4} alt="" onClick={() => { tog_board(); }} className=" avatar-md border-sucess border border-1 border-danger rounded" />
+                    </Col>
+                    <Col xl={4} sm={4} md={4}>
+                      <img src={avatar4} alt="" onClick={() => { tog_board(); }} className=" avatar-md border border-1 border-dark rounded" />
                     </Col>
                   </Row>
                 </div>
               </PerfectScrollbar>
+
+              {/* View Image */}
+              <Modal isOpen={modal_board} toggle={() => { tog_board(); }} centered id="createboardModal" className="border-0 modal-sm">
+                        <div className="modal-header p-3">
+                            <Button type="button" onClick={() => { setmodal_board(false); }} id="btn-close2" className="btn-close" aria-label="Close" >
+                            </Button>
+                        </div>
+                        <div className="modal-body text-center">
+                          <img src={avatar4} alt="" className="avatar-xxl border-sucess border border-1 border-secondary rounded" />
+                        </div>
+                    </Modal>
             </div>
           </div>
         </Container>
@@ -412,11 +449,8 @@ const ObjectDetection = () => {
               <CardBody>
                   <Basic dataColors='["--vz-primary"]'/>
               </CardBody>
-          </Card>
+        </Card>
       </div>
-      
-      
-
     </React.Fragment>
   );
 };
