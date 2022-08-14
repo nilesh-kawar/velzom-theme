@@ -155,7 +155,7 @@ import CoverSignUp from "../pages/AuthenticationInner/Register/CoverSignUp";
 import BasicPasswReset from '../pages/AuthenticationInner/PasswordReset/BasicPasswReset';
 //pages
 import Starter from '../pages/Pages/Starter/Starter';
-import TestPage from '../pages/Pages/TestPage/TestPage';
+import ObjectDetection from '../pages/Pages/ObjectDetectionPage/ObjectDetectionPage';
 import SimplePage from '../pages/Pages/Profile/SimplePage/SimplePage';
 import Settings from '../pages/Pages/Profile/Settings/Settings';
 import Team from '../pages/Pages/Team/Team';
@@ -385,7 +385,7 @@ const authProtectedRoutes = [
 
   //Pages
   { path: "/pages-starter", component: Starter },
-  { path: "/pages-testpage", component: TestPage },
+  { path: "/ObjectDetectionPage", component: ObjectDetection },
   { path: "/pages-profile", component: SimplePage },
   { path: "/pages-profile-settings", component: Settings },
   { path: "/pages-team", component: Team },

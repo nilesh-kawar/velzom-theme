@@ -20,14 +20,20 @@ import BreadCrumb from '../../../Components/Common/BreadCrumb';
 import PerfectScrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
 import { Link } from "react-router-dom";
+// Import Images
+import avatar4 from "../../../assets/images/users/avatar-4.jpg";
+import {
+    Basic,
+    DifferentColor,
+} from "../../Charts/ApexCharts/TimelineCharts/TimelineCharts";
 
-const TestPage = () => {
-    document.title="TestPage | Velzon - React Admin & Dashboard Template";
+const ObjectDetection = () => {
+    document.title="Object Detection Page| Velzon - React Admin & Dashboard Template";
   return (
     <React.Fragment>
       <div className="page-content">
         <Container fluid>
-          <BreadCrumb title="TestPagess" pageTitle="Pages" />
+          <BreadCrumb title="Object Detection Page" pageTitle="Pages" />
           <div className="chat-wrapper d-lg-flex gap-1 mx-n4 mt-n4 p-1">
             <div className="chat-leftsidebar height-width">
               <div className="px-4 pt-4 mb-4">
@@ -324,8 +330,21 @@ const TestPage = () => {
               </div>
             </div>
 
-            <div className="chat-leftsidebar height-width">
-              <div className="px-4 pt-4 mb-4">
+            <div className="chat-leftsidebar height-width-right overflow-hidden">
+              <div className="px-2 pt-4 mb-4">
+                {/* Select Box  */}
+                <div className="pb-2">
+                  <div className="input-light">
+                    <select className="form-control" data-choices data-choices-search-false name="choices-single-default" id="idStatus">
+                      <option value="">Status</option>
+                      <option defaultValue="all"  >All</option>
+                      <option value="New">New</option>
+                      <option value="Pending">Pending</option>
+                      <option value="Inprogress">Inprogress</option>
+                      <option value="Completed">Completed</option>
+                    </select>
+                  </div>
+                </div>
                 {/* Search Box  */}
                 <div className="search-box">
                   <input
@@ -339,261 +358,61 @@ const TestPage = () => {
               </div>
 
               <PerfectScrollbar className="chat-room-list">
-              <div className="chat-message-list">
-                  <ul
-                    className="list-unstyled chat-list chat-user-list mb-0 users-list"
-                    id="channelList"
-                  >
-                    <li>
-                      <Link to="#" className="unread-msg-user">
-                        <div className="d-flex align-items-center">
-                          <div className="flex-shrink-0 chat-user-img online align-self-center me-2 ms-0">
-                            <div className="avatar-xxs">
-                              <div className="avatar-title bg-light rounded-circle text-body">-
-                              </div>
-                            </div>
-                          </div>
-                          <div className="flex-grow-1 overflow-hidden">
-                            <p className="text-truncate mb-0">Ground Truth</p>
-                          </div>
-                        </div>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="#" className="unread-msg-user">
-                        <div className="d-flex align-items-center">
-                          <div className="flex-shrink-0 chat-user-img online align-self-center me-2 ms-0">
-                            <div className="avatar-xxs">
-                              <div className="avatar-title bg-light rounded-circle text-body">-
-                              </div>
-                            </div>
-                          </div>
-                          <div className="flex-grow-1 overflow-hidden">
-                            <p className="text-truncate mb-0">Predict</p>
-                          </div>
-                        </div>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="#" className="unread-msg-user">
-                        <div className="d-flex align-items-center">
-                          <div className="flex-shrink-0 chat-user-img online align-self-center me-2 ms-0">
-                            <div className="avatar-xxs">
-                              <div className="avatar-title bg-light rounded-circle text-body">-
-                              </div>
-                            </div>
-                          </div>
-                          <div className="flex-grow-1 overflow-hidden">
-                            <p className="text-truncate mb-0">Ignore</p>
-                          </div>
-                        </div>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="#" className="unread-msg-user">
-                        <div className="d-flex align-items-center">
-                          <div className="flex-shrink-0 chat-user-img online align-self-center me-2 ms-0">
-                            <div className="avatar-xxs">
-                              <div className="avatar-title bg-light rounded-circle text-body">-
-                              </div>
-                            </div>
-                          </div>
-                          <div className="flex-grow-1 overflow-hidden">
-                            <p className="text-truncate mb-0">Working</p>
-                          </div>
-                        </div>
-                      </Link>
-                    </li>
-                  </ul>
-              </div>
-
-              <hr />
-              <div>
-                <div className="px-3  rounded-2 mb-2">
-                  <div className="d-flex align-items-center">
-                    <div className="flex-grow-1">
-                      <h6 className="text-muted font-weight-normal">From</h6>
-                    </div>
-                    <div className="flex-shrink-0">
-                      <h6 className="mb-0">00.00.00.00</h6>
-                    </div>
-                  </div>
-                  <div className="d-flex align-items-center">
-                    <div className="flex-grow-1">
-                      <h6 className="text-muted font-weight-normal">To</h6>
-                    </div>
-                    <div className="flex-shrink-0">
-                      <h6 className="mb-0">00.17.21.52</h6>
-                    </div>
-                  </div>
+                <div className="px-1 container-fluid overflow-hidden ">
+                  <Row className="py-2">
+                    <Col xl={4} sm={4} md={4}>
+                      <img src={avatar4} alt="" className=" avatar-md img-fluid border border-1 border-primary rounded" />
+                    </Col>
+                    <Col xl={4} sm={4} md={4}>
+                      <img src={avatar4} alt="" className=" avatar-md img-fluid border-sucess border border-1 border-secondary rounded" />
+                    </Col>
+                    <Col xl={4} sm={4} md={4}>
+                      <img src={avatar4} alt="" className=" avatar-md img-fluid border border-1 border-success rounded" />
+                    </Col>
+                  </Row>
+                  <Row className="py-2">
+                    <Col xl={4} sm={4} md={4}>
+                      <img src={avatar4} alt="" className=" avatar-md img-fluid border border-1 border-warning rounded" />
+                    </Col>
+                    <Col xl={4} sm={4} md={4}>
+                      <img src={avatar4} alt="" className=" avatar-md img-fluid border-sucess border border-1 border-danger rounded" />
+                    </Col>
+                    <Col xl={4} sm={4} md={4}>
+                      <img src={avatar4} alt="" className=" avatar-md img-fluid border border-1 border-dark rounded" />
+                    </Col>
+                  </Row>
+                  <Row className="py-2">
+                    <Col xl={4} sm={4} md={4}>
+                      <img src={avatar4} alt="" className=" avatar-md img-fluid border border-1 border-primary rounded" />
+                    </Col>
+                    <Col xl={4} sm={4} md={4}>
+                      <img src={avatar4} alt="" className=" avatar-md img-fluid border-sucess border border-1 border-secondary rounded" />
+                    </Col>
+                    <Col xl={4} sm={4} md={4}>
+                      <img src={avatar4} alt="" className=" avatar-md img-fluid border border-1 border-success rounded" />
+                    </Col>
+                  </Row>
+                  <Row className="py-2">
+                    <Col xl={4} sm={4} md={4}>
+                      <img src={avatar4} alt="" className=" avatar-md img-fluid border border-1 border-warning rounded" />
+                    </Col>
+                    <Col xl={4} sm={4} md={4}>
+                      <img src={avatar4} alt="" className=" avatar-md img-fluid border-sucess border border-1 border-danger rounded" />
+                    </Col>
+                    <Col xl={4} sm={4} md={4}>
+                      <img src={avatar4} alt="" className=" avatar-md img-fluid border border-1 border-dark rounded" />
+                    </Col>
+                  </Row>
                 </div>
-              </div>
-              <hr />
-              
-              <div>
-                <div className="px-3  rounded-2 mb-2">
-                  <div className="d-flex align-items-center">
-                    <div className="flex-grow-1">
-                      <h6 className="mb-0 text-muted font-weight-normal">Instances</h6>
-                    </div>
-                    <div className="flex-shrink-0">
-                        <UncontrolledDropdown>
-                            <DropdownToggle tag="button" className="btn btn-light bg-transparent border-0 pr-0">
-                                First <i className="mdi mdi-chevron-down"></i>
-                            </DropdownToggle>
-                            <DropdownMenu>
-                                <DropdownItem>First</DropdownItem>
-                                <DropdownItem>Second</DropdownItem>
-                                <DropdownItem>Third</DropdownItem>
-                            </DropdownMenu>
-                        </UncontrolledDropdown>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <hr />
-            
-              <div>
-                <div className="px-3  rounded-2 mb-2">
-                  <div className="d-flex align-items-center">
-                    <div className="flex-grow-1">
-                      <h6 className="mb-0 text-muted font-weight-normal">Longer than</h6>
-                    </div>
-                    <div className="flex-shrink-0">
-                      <h6> <span className="font-weight-bold font-italic">5</span> secs</h6>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <hr />
-
-              <div className="chat-message-list">
-                  <ul
-                    className="list-unstyled chat-list chat-user-list mb-0 users-list"
-                    id="channelList"
-                  >
-                    <li>
-                      <Link to="#" className="unread-msg-user" >
-                        <div className="d-flex align-items-center">
-                          <div className="flex-shrink-0 chat-user-img online align-self-center me-2 ms-0">
-                          </div>
-                          <div className="flex-grow-1 overflow-hidden">
-                            <p className="text-truncate mb-0 font-weight-bold">+</p>
-                          </div>
-                          <div className="flex-shrink-0">
-                                  <span className="text-muted">
-                                    All None
-                                  </span>
-                                </div>
-                        </div>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="#" className="unread-msg-user" >
-                        <div className="d-flex align-items-center">
-                          <div className="flex-shrink-0 chat-user-img online align-self-center me-2 ms-0">
-                            <div className="avatar-xxs">
-                              <div className="avatar-title bg-gradient bg-secondary  rounded-circle text-body">
-                              </div>
-                            </div>
-                          </div>
-                          <div className="flex-grow-1 overflow-hidden">
-                            <p className="mb-0 text-muted font-weight-normal">Car</p>
-                          </div>
-                          <div className="flex-shrink-0">
-                                  <span>
-                                    372
-                                  </span>
-                                </div>
-                        </div>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="#" className="unread-msg-user" >
-                        <div className="d-flex align-items-center">
-                          <div className="flex-shrink-0 chat-user-img online align-self-center me-2 ms-0">
-                            <div className="avatar-xxs">
-                              <div className="avatar-title bg-gradient bg-primary  rounded-circle text-body">
-                              </div>
-                            </div>
-                          </div>
-                          <div className="flex-grow-1 overflow-hidden">
-                            <p className="mb-0 text-muted font-weight-normal">Motorcycle</p>
-                          </div>
-                          <div className="flex-shrink-0">
-                                  <span>
-                                    187
-                                  </span>
-                                </div>
-                        </div>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="#" className="unread-msg-user">
-                        <div className="d-flex align-items-center">
-                          <div className="flex-shrink-0 chat-user-img online align-self-center me-2 ms-0">
-                            <div className="avatar-xxs">
-                              <div className="avatar-title bg-gradient bg-success  rounded-circle text-body">
-                              </div>
-                            </div>
-                          </div>
-                          <div className="flex-grow-1 overflow-hidden">
-                            <p className="text-muted font-weight-normal mb-0">Sail Boat</p>
-                          </div>
-                          <div className="flex-shrink-0">
-                                  <span>
-                                    76
-                                  </span>
-                                </div>
-                        </div>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="#" className="unread-msg-user">
-                        <div className="d-flex align-items-center">
-                          <div className="flex-shrink-0 chat-user-img online align-self-center me-2 ms-0">
-                            <div className="avatar-xxs">
-                              <div className="avatar-title bg-gradient bg-info  rounded-circle text-body">
-                              </div>
-                            </div>
-                          </div>
-                          <div className="flex-grow-1 overflow-hidden">
-                            <p className="text-muted font-weight-normal mb-0">Person</p>
-                          </div>
-                          <div className="flex-shrink-0">
-                                  <span>
-                                    42
-                                  </span>
-                                </div>
-                        </div>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="#" className="unread-msg-user" href="/apps-chat">
-                        <div className="d-flex align-items-center">
-                          <div className="flex-shrink-0 chat-user-img online align-self-center me-2 ms-0">
-                            <div className="avatar-xxs">
-                              <div className="avatar-title bg-gradient bg-warning  rounded-circle text-body">
-                              </div>
-                            </div>
-                          </div>
-                          <div className="flex-grow-1 overflow-hidden">
-                            <p className="text-muted font-weight-normal mb-0">Dog</p>
-                          </div>
-                          <div className="flex-shrink-0">
-                                  <span>
-                                    25
-                                  </span>
-                                </div>
-                        </div>
-                      </Link>
-                    </li>
-                  </ul>
-              </div>
               </PerfectScrollbar>
             </div>
           </div>
         </Container>
+        <Card>
+              <CardBody>
+                  <Basic dataColors='["--vz-primary"]'/>
+              </CardBody>
+          </Card>
       </div>
       
       
@@ -602,4 +421,4 @@ const TestPage = () => {
   );
 };
 
-export default TestPage;
+export default ObjectDetection;

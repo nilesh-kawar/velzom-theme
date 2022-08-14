@@ -588,9 +588,9 @@ const Navdata = () => {
                     parentId: "pages",
                 },
                 {
-                    id: "TestPage",
-                    label: "TestPage",
-                    link: "/pages-testpage",
+                    id: "ObjectDetection",
+                    label: "Object Detection",
+                    link: "/ObjectDetectionPage",
                     parentId: "pages",
                 },
                 {
