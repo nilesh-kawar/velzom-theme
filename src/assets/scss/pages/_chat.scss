@@ -20,6 +20,9 @@
         height: calc(100vh - #{$header-height} - #{$footer-height} - 8px)!important;
     }
 }
+.detected-object-modal > .btn-secondary:hover{
+    background-color: #303031;
+}
 
 .chat-leftsidebar {
     height: calc(100vh - 137px);
