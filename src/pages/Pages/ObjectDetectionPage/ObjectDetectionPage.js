@@ -27,11 +27,13 @@ import Select from "react-select";
 const ObjectDetection = () => {
     document.title="Object Detection | Velzon - React Admin & Dashboard Template";
 
+    // Image Modal 
     const [modal_board, setmodal_board] = useState(false);
     function tog_board() {
         setmodal_board(!modal_board);
     }
     
+    // For search functionality 
     const [query, setQuery] = useState("");
     const DetectedObjects = [
       {
@@ -65,7 +67,6 @@ const ObjectDetection = () => {
         number: 25
       }
     ]
-
     const StatusCheck = [
       {
         id: 1,
@@ -84,6 +85,17 @@ const ObjectDetection = () => {
         name: "Working",
       },
     ]
+
+    // Play pause icon .
+    const [switchPlay, setSwitch] = useState(false);
+    const togglePlay =() =>{
+      switchPlay? setSwitch(false): setSwitch(true);
+    }
+    // Mute pause icon .
+    const [switchMute, setMuteSwitch] = useState(false);
+    const toggleMute =() =>{
+      switchMute? setMuteSwitch(false): setMuteSwitch(true);
+    }
 
   return (
     <React.Fragment>
@@ -167,7 +179,7 @@ const ObjectDetection = () => {
                     </div>
                     <div className="flex-shrink-0">
                       <div className="input-light">
-                          <Input type="select" name="select" id="exampleSelect" >
+                          <Input type="select" className="border-0" name="select" id="exampleSelect" >
                             <option value="First">First</option>
                             <option value="Seocnd">Second</option>
                             <option value="Third">Third</option>
@@ -187,7 +199,7 @@ const ObjectDetection = () => {
                       <h6 className="mb-0 text-muted font-weight-normal">Longer than</h6>
                     </div>
                     <div className="flex-shrink-0">
-                      <Input type="select" name="select" id="exampleSelect" >
+                      <Input type="select" className=" border-0" name="select" id="exampleSelect" >
                         <option value="5">5 Sec</option>
                         <option value="10">10 Sec</option>
                       </Input>
@@ -262,12 +274,22 @@ const ObjectDetection = () => {
                                         {/* <iframe className="rounded" src="https://www.youtube.com/embed/1y_kfWUCFDQ" title="YouTube video" allowFullScreen></iframe> */}
                                         <img src="https://media.wired.com/photos/5a31bcff41e00716c855d00e/16:9/w_2400,h_1350,c_limit/traffic-FA.jpg" className="img-thumbnail" alt="" />
                                     </div>
-                                    <div className="py-2 mt-3   d-flex justify-content-center  align-items-center ">
-                                      <Link to="#"><i className="bx  bx bx-volume-full bx-sm px-2"></i></Link>
-                                      <Link to="#"><i className="bx bx-skip-previous-circle bx-sm px-2"></i></Link>
-                                      <Link to="#"><i className="bx bx-play-circle bx-md px-2"></i></Link>
-                                      <Link to="#"><i className="bx bx-skip-next-circle bx-sm px-2"></i></Link>
-                                      <Link to="#"><i className="bx bx bx-menu bx-sm px-2"></i></Link>
+                                    <div className="py-2 mt-3   d-flex justify-content-between  align-items-center ">
+                                      <Link to="#"><i className="bx bx-tachometer bx-sm px-2"></i></Link>
+                                      <div className="d-flex align-items-center">
+                                        <Link to="#"><i className={`bx  bx bx-${switchMute?"volume-full ":"volume-mute"} bx-sm px-2`} onClick={toggleMute}></i></Link>
+                                        <Link to="#"><i className="bx bx-skip-previous-circle bx-sm px-2"></i></Link>
+                                        <Link to="#"><i className={`bx bx-${switchPlay?"play-circle":"pause-circle"} bx-md px-2`} onClick={togglePlay}></i></Link>
+                                        <Link to="#"><i className='bx bx-skip-next-circle bx-sm px-2'></i></Link>
+                                        <Link to="#"><i className="bx bx bx-menu bx-sm px-2"></i></Link>
+                                      </div>
+                                      <div className="input-light ">
+                                        <Input type="select" name="select" id="exampleSelect" className="border-0">
+                                          <option value="First">100%</option>
+                                          <option value="Seocnd">150%</option>
+                                          <option value="Third">200%</option>
+                                        </Input>
+                                      </div>
                                     </div>
                                 </div>
                             </CardBody>
@@ -286,12 +308,11 @@ const ObjectDetection = () => {
                 <div className="pb-2">
                   <div className="input-light">
                     <select className="form-control" data-choices data-choices-search-false name="choices-single-default" id="idStatus">
-                      <option value="">Status</option>
-                      <option defaultValue="all"  >All</option>
-                      <option value="New">New</option>
-                      <option value="Pending">Pending</option>
-                      <option value="Inprogress">Inprogress</option>
-                      <option value="Completed">Completed</option>
+                      <option value="">Objects</option>
+                      <option defaultValue="all"  >Clip</option>
+                      <option value="New">Bots</option>
+                      <option value="Pending">Markers</option>
+                      <option value="Inprogress">View</option>
                     </select>
                   </div>
                 </div>
@@ -359,7 +380,7 @@ const ObjectDetection = () => {
 
               {/* View Image Modal*/}
               <Modal isOpen={modal_board} toggle={() => { tog_board(); }} centered id="createboardModal" className="border-0 modal-sm">
-                <div className="modal-header p-3">
+                <div className="modal-header p-3 detected-object-modal">
                   <h5 className="modal-title" id="addmemberModalLabel">Detected Object Close-up</h5>
                     <Button type="button" onClick={() => { setmodal_board(false); }} id="btn-close2" className="btn-close" aria-label="Close" >
                     </Button>
