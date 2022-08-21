@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import {
   Container,
   Button,
+  Dropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
@@ -16,6 +17,8 @@ import {
   Input
 } from "reactstrap";
 import BreadCrumb from '../../../Components/Common/BreadCrumb';
+//Import Icons
+import FeatherIcon from "feather-icons-react";
 //Import Scrollbar
 import PerfectScrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
@@ -26,15 +29,17 @@ import {Basic} from "../../Charts/ApexCharts/TimelineCharts/TimelineCharts";
 import Select from "react-select";
 const ObjectDetection = () => {
     document.title="Object Detection | Velzon - React Admin & Dashboard Template";
+    const [modal_board, setmodal_board] = useState(false);
+    const [query, setQuery] = useState("");
+    const [switchPlay, setSwitch] = useState(false);
+    const [switchMute, setMuteSwitch] = useState(false);
+    const [settings_Menu, setsettings_Menu] = useState(false);
 
     // Image Modal 
-    const [modal_board, setmodal_board] = useState(false);
     function tog_board() {
         setmodal_board(!modal_board);
     }
-    
     // For search functionality 
-    const [query, setQuery] = useState("");
     const DetectedObjects = [
       {
         id: 1,
@@ -85,17 +90,18 @@ const ObjectDetection = () => {
         name: "Working",
       },
     ]
-
     // Play pause icon .
-    const [switchPlay, setSwitch] = useState(false);
     const togglePlay =() =>{
       switchPlay? setSwitch(false): setSwitch(true);
     }
     // Mute pause icon .
-    const [switchMute, setMuteSwitch] = useState(false);
     const toggleMute =() =>{
       switchMute? setMuteSwitch(false): setMuteSwitch(true);
     }
+    //Setting
+    const toggleSettings = () => {
+      setsettings_Menu(!settings_Menu);
+    };
 
   return (
     <React.Fragment>
@@ -275,20 +281,58 @@ const ObjectDetection = () => {
                                         <img src="https://media.wired.com/photos/5a31bcff41e00716c855d00e/16:9/w_2400,h_1350,c_limit/traffic-FA.jpg" className="img-thumbnail" alt="" />
                                     </div>
                                     <div className="py-2 mt-3   d-flex justify-content-between  align-items-center ">
-                                      <Link to="#"><i className="bx bx-tachometer bx-sm px-2"></i></Link>
                                       <div className="d-flex align-items-center">
-                                        <Link to="#"><i className={`bx  bx bx-${switchMute?"volume-full ":"volume-mute"} bx-sm px-2`} onClick={toggleMute}></i></Link>
+                                        {/* <Link to="#"><i className="font-weight">1x</i></Link> */}
+                                        {/* <Link to="#"><i className={`bx  bx bx-${switchMute?"volume-full ":"volume-mute"} bx-sm px-2`} onClick={toggleMute}></i></Link> */}
                                         <Link to="#"><i className="bx bx-skip-previous-circle bx-sm px-2"></i></Link>
                                         <Link to="#"><i className={`bx bx-${switchPlay?"play-circle":"pause-circle"} bx-md px-2`} onClick={togglePlay}></i></Link>
                                         <Link to="#"><i className='bx bx-skip-next-circle bx-sm px-2'></i></Link>
-                                        <Link to="#"><i className="bx bx bx-menu bx-sm px-2"></i></Link>
                                       </div>
-                                      <div className="input-light ">
-                                        <Input type="select" name="select" id="exampleSelect" className="border-0">
-                                          <option value="First">100%</option>
-                                          <option value="Seocnd">150%</option>
-                                          <option value="Third">200%</option>
-                                        </Input>
+                                      <div className="d-flex align-items-center">
+                                        <div className="input-light ">
+                                          <Input type="select" name="select" id="exampleSelect" className="border-0">
+                                            <option value="First">100%</option>
+                                            <option value="Seocnd">150%</option>
+                                            <option value="Third">200%</option>
+                                          </Input>
+                                        </div>
+                                        <Dropdown
+                                          isOpen={settings_Menu}
+                                          toggle={toggleSettings}
+                                        >
+                                          <DropdownToggle
+                                            className="btn btn-ghost-secondary btn-icon"
+                                            tag="button"
+                                          >
+                                            <FeatherIcon
+                                              icon="more-vertical"
+                                              className="icon-sm"
+                                            />
+                                          </DropdownToggle>
+                                          <DropdownMenu>
+                                            <DropdownItem
+                                              href="#"
+                                              className="d-block d-lg-none user-profile-show"
+                                            >
+                                              <i className="ri-user-2-fill align-bottom text-muted me-2"></i>{" "}
+                                              View Profile
+                                            </DropdownItem>
+                                            <DropdownItem href="#">
+                                              <i className="ri-inbox-archive-line align-bottom text-muted me-2"></i>{" "}
+                                              Archive
+                                            </DropdownItem>
+                                            <DropdownItem href="#">
+                                              <i className="ri-mic-off-line align-bottom text-muted me-2"></i>{" "}
+                                              Muted
+                                            </DropdownItem>
+                                            <DropdownItem href="#">
+                                              {" "}
+                                              <i className="ri-delete-bin-5-line align-bottom text-muted me-2"></i>{" "}
+                                              Delete
+                                            </DropdownItem>
+                                          </DropdownMenu>
+                                        </Dropdown>
+                                        <Link to="#"><i className="bx bxs-cog bx-sm px-2"></i></Link>
                                       </div>
                                     </div>
                                 </div>
